@@ -22,7 +22,6 @@ dressing.setup({
 		start_in_insert = true,
 
 		-- These are passed to nvim_open_win
-		anchor = "NW",
 		border = user.ui.float.config.border,
 		-- 'editor' and 'win' will default to being centered
 		relative = "cursor",
@@ -68,6 +67,7 @@ dressing.setup({
 			-- This is the config that will be passed to nvim_open_win.
 			-- Change values here to customize the layout
 			conf.row = 1
+			conf.anchor = "NW"
 			return conf
 		end,
 
@@ -87,7 +87,6 @@ dressing.setup({
         -- Options for built-in selector
         builtin = {
 			-- These are passed to nvim_open_win
-			anchor = "NW",
 			border = user.ui.float.config.border,
 			-- 'editor' and 'win' will default to being centered
 			relative = "cursor",
