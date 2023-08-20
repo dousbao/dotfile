@@ -42,6 +42,11 @@ telescope.setup({
 				["<Esc>"] = "close",
 			},
 		},
+
+		-- file ignore pattern
+		file_ignore_patterns = {
+			"^.git/",
+		},
 	},
 	pickers = {
 		find_files = {
