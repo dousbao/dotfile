@@ -17,7 +17,7 @@
 		"custom/lower-left",
 	],
     "modules-center": [
-		"wlr/workspaces",
+		"hyprland/workspaces",
 	],
     "modules-right": [
 		"custom/lower-right",
@@ -105,10 +105,8 @@
 			"default": ["󰕿", "󰖀", "󰕾"]
 		}
 	},
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"format": "{icon}",
-		"on-click": "activate",
-		"sort-by-number": true,
 		"format-icons": {
 			"1": "I",
 			"2": "II",
