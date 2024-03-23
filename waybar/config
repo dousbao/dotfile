@@ -1,5 +1,6 @@
 {
     "layer": "top",
+	"output": ["DP-1"],
 	"margin-left": 10,
 	"margin-top": 10,
 	"margin-right": 10,
@@ -12,22 +13,16 @@
 		"custom/upper-right",
 		"clock",
 		"custom/lower-left",
-		"custom/upper-right",
-		"mpd",
-		"custom/lower-left",
 	],
     "modules-center": [
 		"hyprland/workspaces",
 	],
     "modules-right": [
 		"custom/lower-right",
-		"backlight",
+		"mpd",
 		"custom/upper-left",
 		"custom/lower-right",
 		"pulseaudio",
-		"custom/upper-left",
-		"custom/lower-right",
-		"battery",
 		"custom/upper-left",
 		"custom/lower-right",
 		"network"
@@ -76,10 +71,6 @@
 		"format": "{:%c}",
 		"tooltip": false,
 		"interval": 1
-	},
-	"backlight": {
-		"format": "{icon} {percent}%",
-		"format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩖", "󰛨"]
 	},
 	"network": {
 		"max-length": 10,

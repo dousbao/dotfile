@@ -1,6 +1,6 @@
 * {
 	font-family: Hack Nerd Font;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 window#waybar {
@@ -22,9 +22,7 @@ window#waybar {
 #cpu,
 #mpd,
 #clock,
-#backlight,
 #network,
-#battery,
 #pulseaudio,
 #workspaces {
 	padding-left: 10px;
@@ -85,25 +83,6 @@ window#waybar {
 }
 
 /* 
- * position: left
- * module: mpd
- */
-
-#mpd {
-	background-color: rgba(0x42, 0x4A, 0x3E, 0.7);
-	border-bottom: 3px solid #424A3E;
-}
-
-.modules-left widget:nth-child(9) #custom-upper-right {
-	color: rgba(0x42, 0x4A, 0x3E, 0.7);
-}
-
-.modules-left widget:nth-child(11) #custom-lower-left {
-	color: rgba(0x42, 0x4A, 0x3E, 0.7);
-	border-bottom: 3px solid #424A3E;
-}
-
-/* 
  * position: center
  * module: workspace
  */
@@ -137,21 +116,21 @@ window#waybar {
 
 /* 
  * position: right
- * module: backlight
+ * module: mpd
  */
 
-#backlight {
-	background-color: rgba(0x3D, 0x42, 0x20, 0.7);
-	border-bottom: 3px solid #3D4220;
+#mpd {
+	background-color: rgba(0x42, 0x4A, 0x3E, 0.7);
+	border-bottom: 3px solid #424A3E;
 }
 
 .modules-right widget:nth-child(1) #custom-lower-right {
-	color: rgba(0x3D, 0x42, 0x20, 0.7);
-	border-bottom: 3px solid #3D4220;
+	color: rgba(0x42, 0x4A, 0x3E, 0.7);
+	border-bottom: 3px solid #424A3E;
 }
 
 .modules-right widget:nth-child(3) #custom-upper-left {
-	color: rgba(0x3D, 0x42, 0x20, 0.7);
+	color: rgba(0x42, 0x4A, 0x3E, 0.7);
 }
 
 /* 
@@ -175,25 +154,6 @@ window#waybar {
 
 /* 
  * position: right
- * module: battery
- */
-
-#battery {
-	background-color: rgba(0x40, 0x49, 0x46, 0.7);
-	border-bottom: 3px solid #404946;
-}
-
-.modules-right widget:nth-child(7) #custom-lower-right {
-	color: rgba(0x40, 0x49, 0x46, 0.7);
-	border-bottom: 3px solid #404946;
-}
-
-.modules-right widget:nth-child(9) #custom-upper-left {
-	color: rgba(0x40, 0x49, 0x46, 0.7);
-}
-
-/* 
- * position: right
  * module: network
  */
 
@@ -202,7 +162,7 @@ window#waybar {
 	border-bottom: 3px solid #252423;
 }
 
-.modules-right widget:nth-child(10) #custom-lower-right {
+.modules-right widget:nth-child(7) #custom-lower-right {
 	color: rgba(0x25, 0x24, 0x23, 0.7);
 	border-bottom: 3px solid #252423;
 }
