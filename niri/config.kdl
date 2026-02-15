@@ -1,0 +1,198 @@
+// ================================================
+// Input Configuration
+// ================================================
+input {
+	// device specific config
+	keyboard {
+		xkb {}							// use default
+		repeat-delay 600
+		repeat-rate 25
+	}
+	touchpad {
+		tap									// tap-to-click
+		natural-scroll			// inverts the scrolling direction
+		accel-speed 0.0			// [-1.0, 1.0]
+	}
+	mouse {
+		accel-speed 0.0
+	}
+	trackpoint { off; }		// thinkpad's trackpoint is ugly as f**k
+	trackball { off; }
+	tablet { off; }
+	touch { off; }
+
+	// input general config
+	mod-key "Super"
+	mod-key-nested "Alt"	// useful when launching niri inside niri
+	warp-mouse-to-focus		// move mouse to focus
+}
+
+// ================================================
+// Output Configuration
+// ================================================
+output "eDP-1" {
+	mode "2560x1600@240.000"
+	scale 2
+	transform "normal"
+	position x=0 y=0
+	variable-refresh-rate			// enable adaptive sync
+	hot-corners { off; }
+}
+
+// ================================================
+// Layout Configuration
+// ================================================
+layout {
+	gaps 16
+	always-center-single-column
+	default-column-display "normal"		// i would never use tabbed
+	tab-indicator { off; }
+	preset-column-widths {
+		proportion 0.5
+		proportion 0.85
+	}
+	default-column-width { proportion 0.85; }
+	border { off; }
+	focus-ring { off; }
+	shadow { 
+		on
+		softness 10
+		spread 5
+		draw-behind-window false
+	}
+	struts {				// movie-like view helps concentrate
+		top 64
+		bottom 64
+	}
+}
+
+// ================================================
+// Animation Configuration
+// ================================================
+animations {
+
+}
+
+// ================================================
+// Key Binding Configuration
+// ================================================
+binds {
+	// Mod + Arrow = move window focus (across workspaces)
+	Mod+Left { focus-column-left; }
+	Mod+Right { focus-column-right; }
+	Mod+Down { focus-window-or-workspace-down; }
+	Mod+Up { focus-window-or-workspace-up; }
+
+	// Mod + Shift + Arrow = move window (will NOT across workspaces)
+	Mod+Shift+Left { move-column-left; }
+	Mod+Shift+Right { move-column-right; }
+	Mod+Shift+Down { move-window-down; }
+	Mod+Shift+Up { move-window-up; }
+
+	// Mod + Shift + [ OR ] = move window into left OR right column
+	Mod+Shift+BracketLeft { consume-or-expel-window-left; }
+	Mod+Shift+BracketRight { consume-or-expel-window-right; }
+
+	// Mod + Shift + [1..9] = move window to workspace #
+	Mod+Shift+1 { move-window-to-workspace 1; }
+	Mod+Shift+2 { move-window-to-workspace 2; }
+	Mod+Shift+3 { move-window-to-workspace 3; }
+	Mod+Shift+4 { move-window-to-workspace 4; }
+	Mod+Shift+5 { move-window-to-workspace 5; }
+	Mod+Shift+6 { move-window-to-workspace 6; }
+	Mod+Shift+7 { move-window-to-workspace 7; }
+	Mod+Shift+8 { move-window-to-workspace 8; }
+	Mod+Shift+9 { move-window-to-workspace 9; }
+
+	//
+	Mod+S { switch-preset-column-width; }
+
+	// Mod + L OR H = increase OR decrease column width
+	Mod+L { set-column-width "+10%"; }
+	Mod+H { set-column-width "-10%"; }
+
+	// Mod + K OR J = increase OR decrease window width
+	Mod+K { set-window-height "+10%"; }
+	Mod+J { set-window-height "-10%"; }
+
+	// Mod + M = toggle maximize state of column
+	Mod+M { maximize-column; }
+
+	// Mod + F = toggle fullscreen state of window
+	Mod+F { fullscreen-window; }
+
+	// Mod + C = center the focused column
+	Mod+C { center-column; }
+
+	// Mod + Q = close window
+	Mod+Q repeat=false { close-window; }
+
+	// Mod + [1..9] = goto workspace #
+	Mod+1 { focus-workspace 1; }
+	Mod+2 { focus-workspace 2; }
+	Mod+3 { focus-workspace 3; }
+	Mod+4 { focus-workspace 4; }
+	Mod+5 { focus-workspace 5; }
+	Mod+6 { focus-workspace 6; }
+	Mod+7 { focus-workspace 7; }
+	Mod+8 { focus-workspace 8; }
+	Mod+9 { focus-workspace 9; }
+
+	// Mod + O = toggle overview
+	Mod+O repeat=false { toggle-overview; }
+
+	// XF86AudioXXX = audio control
+	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+	XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+	XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+	// XF86MonBrightnessXXXX = backlight control
+	XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--device=amdgpu_bl1" "set" "+10%"; }
+	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--device=amdgpu_bl1" "set" "10%-"; }
+
+	// Mod + Newline = spawn terminal
+	Mod+Return { spawn "kitty"; }
+
+	// Mod + Ctrl + Shift + E = leave niri
+	Mod+Ctrl+Shift+E { quit; }
+}
+
+// ================================================
+// Window Rule Configuration
+// ================================================
+window-rule {
+	opacity 0.9
+}
+
+window-rule {
+	match app-id="zen"
+
+	opacity 1.0
+	open-fullscreen true
+}
+
+// ================================================
+// Other Configuration
+// ================================================
+// no title
+prefer-no-csd
+
+// terminal on startup
+spawn-sh-at-startup "kitty --hold fastfetch"
+
+// start quickshell
+spawn-at-startup "quickshell"
+
+// hide cursor
+cursor {
+	xcursor-theme "Bibata-Modern-Ice"
+	xcursor-size 24
+	hide-when-typing
+	hide-after-inactive-ms 1000
+}
+
+// disable hotkey
+hotkey-overlay {
+	skip-at-startup
+}
