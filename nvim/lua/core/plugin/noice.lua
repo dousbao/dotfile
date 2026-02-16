@@ -15,13 +15,13 @@ return function()
 				},
 				relative = "editor",
 				border = {
-					style = { "𜵊", "🮂", "𜶘", "𜶖", "𜷓", "▂", "𜶿", "𜵈" },
+					style = "double",
 					text = {
 						top = "",
 					},
 				},
 				win_options = {
-					winhighlight = "Normal:Pmenu"
+					winhighlight = ""
 				},
 			}
 		},

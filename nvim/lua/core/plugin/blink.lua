@@ -12,8 +12,9 @@ return function()
 			-- better menu outlook
 			menu = {
 				winblend = vim.o.winblend,
-				border = { "𜵊", "🮂", "𜶘", "𜶖", "𜷓", "▂", "𜶿", "𜵈" },
+				border = { "🬕", "▔", "𜶘", "🮇", "🬷", "▁", "🬲", "▎" },
 				scrollbar = false,
+				winhighlight = "",
 
 				draw = {
 					treesitter = { "lsp" },
@@ -47,11 +48,11 @@ return function()
 			},
 			window = {
 				show_documentation = false,
-				border = { "𜵊", "🮂", "𜶘", "𜶖", "𜷓", "▂", "𜶿", "𜵈" },
+				border = { "🬕", "▔", "𜶘", "🮇", "🬷", "▁", "🬲", "▎" },
 				winblend = vim.o.winblend,
 				treesitter_highlighting = true,
 				show_documentation = false,
-				winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder"
+				winhighlight = ""
 			}
 		},
 
