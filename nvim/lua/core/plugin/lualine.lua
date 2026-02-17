@@ -6,7 +6,14 @@ return function()
 			component_separators = { left = "", right = "" },
 			section_separators = { left = " ", right = " " },
 			disabled_filetypes = {
-				statusline = {},
+				statusline = { 
+					"dapui_stacks",
+					"dapui_scopes",
+					"dapui_breakpoints",
+					"dapui_watches",
+					"dap-repl",
+					"dapui_console"
+				},
 				winbar = {},
 			},
 		},

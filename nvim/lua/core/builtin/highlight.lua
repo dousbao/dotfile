@@ -8,6 +8,8 @@ return function()
 		highlight! FloatTitle ctermbg=NONE guibg=NONE
 		highlight! LineNr ctermbg=NONE guibg=NONE
 		highlight! SignColumn ctermbg=NONE guibg=NONE
+		highlight! link WinBar CursorColumn
+		highlight! link WinBarNC CursorColumn
 	]])
 end
 

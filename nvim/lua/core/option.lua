@@ -32,6 +32,8 @@ local tui = {
 	-- persistent undo
 	undofile = true,
 	undodir = vim.fn.stdpath("data") .. "/undo",
+	-- disable mouse menu
+	mousemodel = "extend"
 }
 
 local gui = {}

@@ -150,5 +150,21 @@ lazy.setup({
 			"MunifTanjim/nui.nvim",
 		},
 		config = require("core.plugin.noice")
+	},
+
+	-- debug DAP client
+	{
+		"mfussenegger/nvim-dap",
+		config = require("core.plugin.dapclient")
+	},
+
+	-- debug ui
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { 
+			"nvim-neotest/nvim-nio",
+			"mfussenegger/nvim-dap" 
+		},
+		config = require("core.plugin.dapui")
 	}
 })
