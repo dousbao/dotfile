@@ -9,8 +9,8 @@ local tui = {
 	-- report line number
 	number = true,
 	-- 2 space per tab
-	tabstop = 2,
-	shiftwidth = 2,
+	tabstop = 4,
+	shiftwidth = 4,
 	-- wrap is fine
 	wrap = true,
 	-- more natural split
