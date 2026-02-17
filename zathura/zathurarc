@@ -1,0 +1,27 @@
+# ==========================
+# Colors
+# ==========================
+include schemerc
+
+# ==========================
+# General
+# ==========================
+# better reading
+set pages-per-row "2"
+
+# fonts
+set font "CaskaydiaCove Nerd Font, 12"
+
+# vertical scroll bar only
+set guioptions "v"
+
+# enable clipping
+set selection-clipboard "clipboard"
+set selection-notification false
+
+# ==========================
+# Keymap
+# ==========================
+# q -> quit is annoying
+unmap q
+unmap index q
