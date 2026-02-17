@@ -166,5 +166,11 @@ lazy.setup({
 			"mfussenegger/nvim-dap" 
 		},
 		config = require("core.plugin.dapui")
+	},
+
+	-- color viewer
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = true
 	}
 })
